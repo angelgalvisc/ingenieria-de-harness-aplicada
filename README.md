@@ -14,4 +14,17 @@ El archivo HTML es autónomo: puede descargarse y abrirse directamente en un nav
 - [Notebook: Inference Masterclass I — Quantization/Harness-Es](https://www.kaggle.com/code/angelgalvis/inference-masterclass-i-quantization-harness-es)
 - [Modelo Agent A1 Alchemist 4-bit](https://huggingface.co/angelgalvisc/agent-a1-alchemist-4bit)
 
+## Cómo citar
+
+- **Título:** *Inferencia*
+- **Subtítulo:** *Ingeniería aplicada · Modelos de pesos abiertos · Harness*
+- **Autor:** Angel Galvis
+- **Organización:** Datastrat
+- **Año:** 2026
+- **Repositorio:** [github.com/angelgalvisc/ingenieria-de-harness-aplicada](https://github.com/angelgalvisc/ingenieria-de-harness-aplicada)
+
+Referencia sugerida en APA 7:
+
+> Galvis, A. (2026). *Inferencia: Ingeniería aplicada · Modelos de pesos abiertos · Harness* [Presentación]. Datastrat. https://github.com/angelgalvisc/ingenieria-de-harness-aplicada
+
 © 2026 Datastrat. Todos los derechos reservados.
