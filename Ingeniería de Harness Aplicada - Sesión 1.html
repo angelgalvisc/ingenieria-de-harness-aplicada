@@ -234,6 +234,37 @@
 .phase-recap-resources>div{display:grid;grid-template-columns:90px 1fr;gap:15px;align-items:baseline}
 .phase-recap-resources b{font:700 15px/1.2 var(--mono);color:var(--coral)}
 .phase-recap-resources p{font-size:18px;line-height:1.3;color:var(--ink-soft)}
+/* Pesos y representación: esquema editable de la diapositiva de cuantización. */
+.quantization-anatomy{width:100%;display:flex;flex-direction:column;align-items:center;gap:0;color:var(--ink-soft)}
+.quantization-anatomy h2,.quantization-anatomy h3{font:700 15px/1.2 var(--mono);color:var(--ink);text-align:center;letter-spacing:.02em}
+.quant-model-layers{display:grid;grid-template-columns:repeat(3,160px);gap:20px;margin-top:10px}
+.quant-model-layer{border:1px solid var(--rule);padding:9px 14px;text-align:center}
+.quant-model-layer b{font:600 14px/1.2 var(--mono);color:var(--ink)}
+.quant-model-tensors{display:flex;justify-content:center;gap:15px;margin-top:8px}
+.quant-mini-matrix{width:21px;height:21px;border:1px solid var(--mute);background:linear-gradient(to right,transparent 45%,var(--rule) 45%,var(--rule) 51%,transparent 51%),linear-gradient(to bottom,transparent 45%,var(--rule) 45%,var(--rule) 51%,transparent 51%)}
+.quant-tensor-caption{font-size:17px;line-height:1.28;text-align:center;margin-top:9px}
+.quant-zoom-arrow{font:500 23px/1 var(--mono);color:var(--mute);height:25px;text-align:center}
+.quant-matrix-zoom{display:grid;grid-template-columns:310px 45px 310px;gap:15px;align-items:center;margin:0 auto 4px}
+.quant-matrix{display:grid;grid-template-columns:repeat(3,80px);grid-template-rows:repeat(3,28px);justify-content:center;border-left:2px solid var(--ink);border-right:2px solid var(--ink);margin:10px auto 0;padding:4px 8px;position:relative;width:max-content}
+.quant-matrix::before,.quant-matrix::after{content:'';position:absolute;inset:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);width:8px;pointer-events:none}
+.quant-matrix::before{right:auto}.quant-matrix::after{left:auto}
+.quant-matrix span{font:500 18px/28px var(--mono);text-align:center}
+.quant-matrix .selected-weight{background:rgba(221,75,41,.09);color:var(--coral);outline:1px solid var(--coral);font-weight:700}
+.quant-zoom-right{font:400 30px/1 var(--mono);color:var(--mute);text-align:center}
+.quant-selected h3{font-size:14px;line-height:1.4}
+.quant-selected strong{display:block;text-align:center;font:600 35px/1.2 var(--mono);color:var(--coral);margin-top:10px}
+.quant-representation{width:100%;border-top:1px solid var(--rule);margin-top:5px;padding-top:11px}
+.quant-representation-grid{display:grid;grid-template-columns:1fr 40px 1fr;gap:14px;align-items:center;margin-top:9px;text-align:center}
+.quant-representation-grid h4{font:500 16px/1.2 var(--sans);color:var(--mute)}
+.quant-numeric-value{display:block;font:600 30px/1.15 var(--mono);color:var(--ink);margin-top:4px}
+.quant-low .quant-numeric-value{color:var(--coral)}
+.quant-bit-label{font:700 13px/1.2 var(--mono);color:var(--ink);margin-top:10px}
+.quant-bit-strip{display:flex;justify-content:center;gap:4px;margin-top:8px}
+.quant-bit-strip i{display:block;width:14px;height:17px;border:1px solid var(--mute)}
+.quant-low .quant-bit-strip i{border-color:var(--coral);background:rgba(221,75,41,.07)}
+.quant-scale-note{font-size:15px;line-height:1.3;color:var(--mute);text-align:center;margin-top:12px}
+.quant-scale-note strong{font-weight:600;color:var(--ink)}
+.quant-anatomy-effects{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;border-top:1px solid var(--rule);width:100%;margin-top:11px;padding-top:11px;font:600 14px/1.25 var(--mono);color:var(--ink)}
 @media print{.slide{position:relative;page-break-inside:avoid;break-inside:avoid;page-break-before:auto;break-before:auto;page-break-after:always;break-after:page}.slide:last-child{page-break-after:auto;break-after:auto}}
 </style></head><body><main class="deck-wrap"><section class="slide s01 cover-slide" id="slide-01" data-slide="1">
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
@@ -758,7 +789,32 @@
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
     <div class="rule-top"></div>
     <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div><div class="title-pos"><h1 class="action-title ">Cuantización<span class="dot">.</span></h1></div>
-    <div class="stage split "><div class="copy"><p>La cuantización representa pesos, activaciones u otros valores con menor precisión que su formato original.</p><p>En prefill puede aprovechar unidades de cálculo de menor precisión. En decode reduce los datos que deben leerse desde memoria.</p><p>También reduce almacenamiento y libera espacio para caché u otras optimizaciones. A cambio, introduce errores de aproximación que pueden acumularse y modificar la calidad de la salida.</p></div><div class="visual"><div class="quantize"><div class="precise">1011010010110100<br><small>MAYOR PRECISIÓN</small></div><div class="compress">⇢</div><div class="compact">1011<br><small>MENOR PRECISIÓN</small></div><div class="quant-effects">↓ memoria &nbsp; ↓ movimiento &nbsp; ↑ error de aproximación</div></div></div></div>
+    <div class="stage split "><div class="copy"><p>La cuantización representa pesos, activaciones u otros valores con menor precisión que su formato original.</p><p>En prefill puede aprovechar unidades de cálculo de menor precisión. En decode reduce los datos que deben leerse desde memoria.</p><p>También reduce almacenamiento y libera espacio para caché u otras optimizaciones. A cambio, introduce errores de aproximación que pueden acumularse y modificar la calidad de la salida.</p></div><div class="visual">
+      <div class="quantization-anatomy" role="img" aria-label="Los pesos del modelo se organizan en tensores. Una matriz es un tensor de dos dimensiones. Se destaca un peso de 0,27 y se muestra su aproximación a 0,30 mediante un código de 4 bits y una escala de 0,1.">
+        <h2>PESOS DEL MODELO</h2>
+        <div class="quant-model-layers">
+          <div class="quant-model-layer"><b>Capa 1</b><div class="quant-model-tensors" aria-hidden="true"><i class="quant-mini-matrix"></i><i class="quant-mini-matrix"></i><i class="quant-mini-matrix"></i></div></div>
+          <div class="quant-model-layer"><b>Capa 2</b><div class="quant-model-tensors" aria-hidden="true"><i class="quant-mini-matrix"></i><i class="quant-mini-matrix"></i><i class="quant-mini-matrix"></i></div></div>
+          <div class="quant-model-layer"><b>Capa …</b><div class="quant-model-tensors" aria-hidden="true"><i class="quant-mini-matrix"></i><i class="quant-mini-matrix"></i><i class="quant-mini-matrix"></i></div></div>
+        </div>
+        <p class="quant-tensor-caption">Los pesos se organizan en tensores.<br>Una matriz es un tensor de dos dimensiones.</p>
+        <div class="quant-zoom-arrow">↓</div>
+        <div class="quant-matrix-zoom">
+          <div><h3>UNA MATRIZ DE PESOS</h3><div class="quant-matrix"><span>0,12</span><span>−0,45</span><span>0,08</span><span>−0,31</span><span class="selected-weight">0,27</span><span>0,56</span><span>0,04</span><span>0,19</span><span>−0,22</span></div></div>
+          <div class="quant-zoom-right">→</div><div class="quant-selected"><h3>CADA POSICIÓN CONTIENE<br>UN PESO NUMÉRICO</h3><strong>0,27</strong></div>
+        </div>
+        <div class="quant-zoom-arrow">↓</div>
+        <div class="quant-representation"><h3>CUANTIZAR CAMBIA SU REPRESENTACIÓN</h3>
+          <div class="quant-representation-grid">
+            <div><h4>Mayor precisión</h4><strong class="quant-numeric-value">0,27</strong><div class="quant-bit-label">16 BITS POR PESO</div><div class="quant-bit-strip" aria-label="16 bits"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <div class="quant-zoom-right">→</div>
+            <div class="quant-low"><h4>Menor precisión</h4><strong class="quant-numeric-value">≈ 0,30</strong><div class="quant-bit-label">4 BITS POR PESO</div><div class="quant-bit-strip" aria-label="4 bits"><i></i><i></i><i></i><i></i></div></div>
+          </div>
+          <p class="quant-scale-note">Ejemplo: <strong>código 3 × escala 0,1 = 0,30</strong>.<br>La escala se almacena además de los códigos.</p>
+        </div>
+        <div class="quant-anatomy-effects"><span>↓ memoria</span><span>↓ movimiento de datos</span><span>↑ error de aproximación</span></div>
+      </div>
+    </div></div>
     <div class="source"><span class="ref">FUENTE</span> [1], sección 5.1.</div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">42 / 62</span></div>
   </section>
