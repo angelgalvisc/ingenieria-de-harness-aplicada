@@ -355,6 +355,31 @@
 .float-range-table th{font:700 13px/1.2 var(--mono);color:var(--mute);padding:0 10px 10px 0}
 .float-range-table td{font:500 20px/1.25 var(--mono);padding:14px 10px 14px 0;border-top:1px solid var(--rule);color:var(--ink)}
 .float-range-table tr.current td{color:var(--coral);font-weight:650}
+.floating-point-lesson .float-explained{top:228px;bottom:135px;display:block}
+.floating-point-lesson .float-intro{grid-template-columns:1fr;gap:44px}
+.floating-point-lesson .float-goal{display:grid;grid-template-columns:1fr 1fr;column-gap:58px;align-items:center}
+.floating-point-lesson .float-goal h2{font-size:30px;margin:0}
+.floating-point-lesson .float-goal-formula{font-size:35px;grid-row:span 2}
+.floating-point-lesson .float-goal p{font-size:23px;margin:12px 0 0}
+.floating-point-lesson .float-components{gap:58px;min-height:245px}
+.floating-point-lesson .float-component{padding-top:19px}
+.floating-point-lesson .float-component b{font-size:18px}
+.floating-point-lesson .float-component strong{font-size:49px;margin:18px 0}
+.floating-point-lesson .float-component p{font-size:25px;line-height:1.4}
+.floating-point-lesson .float-implicit{font-size:23px;padding-top:22px;line-height:1.4;max-width:1320px}
+.precision-range-content{position:absolute;left:var(--m);right:var(--m);top:226px;bottom:120px;display:grid;grid-template-columns:1fr 1fr;gap:58px;color:var(--ink-soft)}
+.precision-range-column{display:grid;grid-template-rows:98px 143px 143px auto;row-gap:20px}
+.precision-range-column h2{font:700 19px/1.3 var(--mono);color:var(--ink);margin-bottom:13px}
+.precision-range-column header p{font-size:22px;line-height:1.35}
+.precision-range-column .float-resolution-row{margin:0;padding-top:17px}
+.precision-range-column .float-resolution-label{font-size:18px}
+.precision-range-column .float-resolution-formulas{font-size:18px;margin-top:24px}
+.precision-range-column .float-resolution-axis{font-size:30px;margin-top:15px}
+.range-cases{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:23px}
+.range-cases p{font:500 20px/1.3 var(--mono);color:var(--ink)}
+.range-cases small{display:block;font:500 18px/1.3 var(--sans);color:var(--mute);margin-top:9px}
+.range-cases .range-unlocked p,.range-cases .range-unlocked small{color:var(--coral)}
+.precision-range-column .float-example-note{font-size:22px;line-height:1.4;margin-top:3px}
 @media print{.slide{position:relative;page-break-inside:avoid;break-inside:avoid;page-break-before:auto;break-before:auto;page-break-after:always;break-after:page}.slide:last-child{page-break-after:auto;break-after:auto}}
 </style></head><body><main class="deck-wrap"><section class="slide s01 cover-slide" id="slide-01" data-slide="1">
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
@@ -924,17 +949,24 @@
         </div>
         <p class="float-implicit">En los números normalizados, el formato binario utiliza un <strong>1 inicial implícito</strong>. Por eso almacena la fracción que lo completa.</p>
       </div>
-      <div class="float-examples">
-        <div><h2>MÁS BITS DE FRACCIÓN · PASOS MÁS PEQUEÑOS</h2><p class="float-example-lead">Mantengamos el multiplicador <strong>×4</strong>.</p>
+    </div>
+    <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">— / —</span></div>
+  </section>
+<section class="slide precision-range-slide" id="slide-precision-range">
+    <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
+    <div class="rule-top"></div>
+    <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div><div class="title-pos"><h1 class="action-title">Precisión y rango<span class="dot">.</span></h1></div>
+    <div class="precision-range-content">
+        <div class="precision-range-column"><header><h2>MÁS BITS DE FRACCIÓN</h2><p>Mantenemos el multiplicador <strong>×4</strong>.<br>Comparamos los valores entre <strong>6 y 7</strong>.</p></header>
           <div class="float-resolution-row"><div class="float-resolution-label"><span>2 BITS DE FRACCIÓN</span><strong>PASO: 1</strong></div><div class="float-resolution-formulas"><span>1,50 × 4 = 6</span><span>1,75 × 4 = 7</span></div><div class="float-resolution-axis"><span>6</span><i></i><span>7</span></div></div>
           <div class="float-resolution-row"><div class="float-resolution-label"><span>3 BITS DE FRACCIÓN</span><strong>PASO: 0,5</strong></div><div class="float-resolution-formulas"><span>1,50 × 4 = 6</span><span class="new-value">1,625 × 4 = 6,5</span><span>1,75 × 4 = 7</span></div><div class="float-resolution-axis"><span>6</span><i></i><strong>6,5</strong><i></i><span>7</span></div></div>
-          <p class="float-example-note">Ese bit adicional permite representar <strong>exactamente −6,5</strong> al aplicar el signo negativo. Con dos bits de fracción, habría que aproximarlo.</p>
+          <p class="float-example-note"><strong>Pasos más pequeños.</strong><br>El bit adicional permite representar <strong>6,5</strong> sin aproximarlo.</p>
         </div>
-        <div><h2>MÁS BITS DE EXPONENTE · UN RANGO MÁS AMPLIO</h2><p class="float-example-lead">Mantengamos <strong>1,625</strong> y el signo negativo.<br>Cambiemos únicamente el exponente.</p>
-          <table class="float-range-table"><thead><tr><th>EXPONENTE</th><th>MULTIPLICADOR</th><th>NÚMERO REPRESENTADO</th></tr></thead><tbody><tr><td>−2</td><td>2⁻² = 0,25</td><td>−0,40625</td></tr><tr class="current"><td>2</td><td>2² = 4</td><td>−6,5</td></tr><tr><td>10</td><td>2¹⁰ = 1024</td><td>−1664</td></tr></tbody></table>
-          <p class="float-example-note"><strong>Más bits de exponente amplían el rango de exponentes disponibles</strong>, para alcanzar magnitudes más pequeñas o más grandes sin cambiar la fracción del ejemplo.</p>
+        <div class="precision-range-column"><header><h2>MÁS BITS DE EXPONENTE</h2><p>Mantenemos <strong>1,625</strong>.<br>Comparamos dos multiplicadores: <strong>2² y 2¹⁶</strong>.</p></header>
+          <div class="float-resolution-row"><div class="float-resolution-label"><span>5 BITS DE EXPONENTE</span><span>FP16</span></div><div class="range-cases"><div><p>1,625 × 2² = 6,5</p><small>Se puede representar</small></div><div><p>1,625 × 2¹⁶ = 106 496</p><small>Fuera de rango</small></div></div></div>
+          <div class="float-resolution-row"><div class="float-resolution-label"><span>8 BITS DE EXPONENTE</span><span>BF16</span></div><div class="range-cases"><div><p>1,625 × 2² = 6,5</p><small>Se puede representar</small></div><div class="range-unlocked"><p>1,625 × 2¹⁶ = 106 496</p><small>Se puede representar</small></div></div></div>
+          <p class="float-example-note"><strong>Un rango más amplio.</strong><br>Los bits adicionales permiten representar <strong>106 496</strong>, que quedaba fuera de rango.</p>
         </div>
-      </div>
     </div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">— / —</span></div>
   </section>
