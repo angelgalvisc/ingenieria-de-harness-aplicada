@@ -271,6 +271,61 @@
 .quant-scale-note{font-size:15px;line-height:1.3;color:var(--mute);text-align:center;margin-top:12px}
 .quant-scale-note strong{font-weight:600;color:var(--ink)}
 .quant-anatomy-effects{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;border-top:1px solid var(--rule);width:100%;margin-top:11px;padding-top:11px;font:600 14px/1.25 var(--mono);color:var(--ink)}
+/* Explicación de punto flotante y comparación de formatos. */
+.numeric-lesson{position:absolute;left:var(--m);right:var(--m);top:222px;bottom:112px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;row-gap:28px;color:var(--ink-soft)}
+.numeric-lead{font-size:22px;line-height:1.35;max-width:1380px}
+.numeric-columns{display:grid;grid-template-columns:1.1fr 1fr;gap:66px;min-height:0;align-items:start}
+.numeric-lesson h2{font:700 17px/1.25 var(--mono);letter-spacing:.025em;color:var(--ink);margin-bottom:13px}
+.numeric-lesson h2 .coral{margin-right:10px}
+.numeric-lesson p{margin:0}
+.numeric-explanation{font-size:21px;line-height:1.35}
+.fraction-demonstration{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px;text-align:center}
+.fraction-contribution{border-top:2px solid var(--coral);padding-top:12px;display:flex;flex-direction:column;align-items:center;color:var(--coral)}
+.fraction-contribution.off{border-top-color:var(--rule);color:var(--mute)}
+.fraction-contribution small{font:600 13px/1.2 var(--mono);color:var(--mute)}
+.fraction-contribution span{font-size:19px;line-height:1.3;margin-top:5px;color:var(--ink-soft)}
+.fraction-contribution strong{font:600 27px/1.2 var(--mono);margin-top:6px}
+.fraction-contribution .fraction-bit{display:grid;place-items:center;width:48px;height:48px;border:1px solid currentColor;margin-top:13px;font:700 30px/1 var(--mono);background:rgba(221,75,41,.045)}
+.fraction-contribution.off .fraction-bit{background:transparent}
+.fraction-contribution em{font:500 16px/1.2 var(--sans);font-style:normal;margin-top:8px}
+.fraction-sum{border-top:1px solid var(--rule);padding-top:16px;margin-top:19px;text-align:center;font:600 28px/1.2 var(--mono);color:var(--ink)}
+.fraction-sum span{color:var(--coral)}
+.numeric-right-step+.numeric-right-step{border-top:1px solid var(--rule);padding-top:24px;margin-top:29px}
+.numeric-calculation{font:600 31px/1.25 var(--mono);color:var(--ink);margin-top:24px;text-align:center}
+.numeric-calculation strong{color:var(--coral)}
+.numeric-negative{font:650 54px/1 var(--mono);color:var(--ink);text-align:center;margin-top:20px}
+.numeric-takeaways{display:grid;grid-template-columns:1.1fr 1fr;gap:66px;border-top:1px solid var(--rule);padding-top:16px;font-size:20px;line-height:1.35}
+.numeric-takeaways strong{color:var(--ink);font-weight:650}
+.format-comparison .numeric-columns{grid-template-columns:1fr 1fr;gap:58px}
+.format-comparison .numeric-lesson{row-gap:24px}
+.format-comparison .numeric-lead{max-width:none;font-size:21px}
+.format-legend-keys{display:flex;gap:24px;align-items:center;font:500 14px/1.2 var(--mono);margin-bottom:17px}
+.format-legend-keys span{display:flex;gap:8px;align-items:center}
+.format-legend-keys i{display:block;width:12px;height:12px;background:var(--ink)}
+.format-legend-keys .exp-key{background:var(--coral)}
+.format-legend-keys .fraction-key{background:#a1a5aa}
+.format-bit-row{display:grid;grid-template-columns:78px 1fr;gap:15px;align-items:center;margin-top:12px}
+.format-bit-row>b{font:700 20px/1.2 var(--mono);color:var(--ink)}
+.format-proportional-bits{display:grid;grid-template-columns:repeat(16,1fr);height:46px;border:1px solid var(--rule)}
+.format-proportional-bits span{display:grid;place-items:center;font:600 18px/1 var(--mono);border-right:1px solid var(--bg)}
+.format-proportional-bits .sign-field{grid-column:span 1;background:var(--ink);color:var(--bg)}
+.format-proportional-bits .exponent-field{background:rgba(221,75,41,.14);color:var(--coral)}
+.format-proportional-bits .fraction-field{background:#e5e5e7;color:var(--ink)}
+.format-description{margin-top:16px!important;font-size:20px;line-height:1.3}
+.format-description strong{color:var(--ink);font-weight:650}
+.format-same-width{margin-top:14px;font:650 17px/1.25 var(--mono);color:var(--ink);border-top:1px solid var(--rule);padding-top:11px}
+.format-families{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.format-family-column{border-top:3px solid var(--ink);padding-top:12px}
+.format-family-column:last-child{border-top-color:var(--coral)}
+.format-family-column h3{font:700 15px/1.25 var(--mono);color:var(--ink);margin-bottom:14px}
+.format-family-column .format-names{font:600 18px/1.55 var(--mono);color:var(--ink)}
+.format-family-column p{font-size:19px;line-height:1.35;margin-top:17px}
+.format-family-column .spacing-description{font-size:18px;color:var(--mute)}
+.format-integer-example{font:600 18px/1.35 var(--mono);color:var(--ink);border-top:1px solid var(--rule);padding-top:15px;margin-top:22px}
+.format-integer-example span{color:var(--coral)}
+.format-comparison-takeaway{border-top:1px solid var(--rule);padding-top:14px;font-size:20px;line-height:1.35}
+.format-comparison-takeaway strong{color:var(--ink)}
+.format-comparison-takeaway small{display:block;font-size:17px;color:var(--mute);margin-top:5px}
 @media print{.slide{position:relative;page-break-inside:avoid;break-inside:avoid;page-break-before:auto;break-before:auto;page-break-after:always;break-after:page}.slide:last-child{page-break-after:auto;break-after:auto}}
 </style></head><body><main class="deck-wrap"><section class="slide s01 cover-slide" id="slide-01" data-slide="1">
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
@@ -826,11 +881,55 @@
     <div class="source"><span class="ref">FUENTE</span> [1], sección 5.1.</div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">42 / 62</span></div>
   </section>
-<section class="slide s43 " id="slide-43" data-slide="43">
+<section class="slide floating-point-lesson" id="slide-floating-point-lesson">
+    <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
+    <div class="rule-top"></div>
+    <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div><div class="title-pos"><h1 class="action-title">Punto flotante<span class="dot">.</span></h1></div>
+    <div class="numeric-lesson">
+      <p class="numeric-lead">Un número en punto flotante combina tres componentes: una fracción que permite distinguir valores cercanos, un exponente que ajusta la magnitud y un signo.</p>
+      <div class="numeric-columns">
+        <div><h2><span class="coral">01</span> FRACCIÓN · CONSTRUIR EL VALOR</h2><p class="numeric-explanation">En este ejemplo, partimos de <strong>1</strong>.<br>Cada bit de fracción permite añadir una porción menor.</p>
+          <div class="fraction-demonstration">
+            <div class="fraction-contribution"><small>PRIMER BIT</small><span>una mitad</span><strong>0,5</strong><b class="fraction-bit">1</b><em>se añade</em></div>
+            <div class="fraction-contribution off"><small>SEGUNDO BIT</small><span>un cuarto</span><strong>0,25</strong><b class="fraction-bit">0</b><em>no se añade</em></div>
+            <div class="fraction-contribution"><small>TERCER BIT</small><span>un octavo</span><strong>0,125</strong><b class="fraction-bit">1</b><em>se añade</em></div>
+          </div>
+          <div class="fraction-sum">1 + <span>0,5</span> + <span>0,125</span> = 1,625</div>
+        </div>
+        <div>
+          <div class="numeric-right-step"><h2><span class="coral">02</span> EXPONENTE · AJUSTAR LA MAGNITUD</h2><p class="numeric-explanation">El exponente indica una potencia de dos.<br>Si el exponente es <strong>2</strong>, multiplicamos por <strong>2² = 4</strong>.</p><div class="numeric-calculation">1,625 × <strong>4</strong> = 6,5</div></div>
+          <div class="numeric-right-step"><h2><span class="coral">03</span> SIGNO · POSITIVO O NEGATIVO</h2><p class="numeric-explanation">Con signo negativo, el resultado es:</p><div class="numeric-negative">−6,5</div></div>
+        </div>
+      </div>
+      <div class="numeric-takeaways"><p><strong>Más bits de fracción:</strong> permiten representar pasos más pequeños entre valores.</p><p><strong>Más bits de exponente:</strong> permiten abarcar magnitudes más grandes y más pequeñas.</p></div>
+    </div>
+    <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">— / —</span></div>
+  </section>
+<section class="slide s43 format-comparison" id="slide-43" data-slide="43">
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
     <div class="rule-top"></div>
     <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div><div class="title-pos"><h1 class="action-title ">Formatos numéricos<span class="dot">.</span></h1></div>
-    <div class="stage split dense"><div class="copy"><p>Un formato numérico se caracteriza por la cantidad de bits, la forma de representar el valor y, cuando existe cuantización, los parámetros utilizados para aproximar el rango original.</p><ul class="square-list"><li><strong>FP — Floating Point.</strong> Distribuye sus bits entre signo, exponente y fracción. FP16, FP8 y FP4 indican el número total de bits.</li><li><strong>BF16 — Brain Floating Point de 16 bits.</strong> Es un formato de punto flotante con ocho bits de exponente y siete de fracción.</li><li><strong>INT — Integer.</strong> En cuantización, INT8 o INT4 utilizan códigos enteros acompañados por una escala y, según el método, un punto cero.</li></ul><p>La utilidad de cada formato depende del soporte efectivo del hardware y del runtime de inferencia.</p></div><div class="visual"><div class="number-format"><div class="format-family"><b>PUNTO FLOTANTE</b><div class="format-example"><strong>BF16</strong><span class="bits"><i>1<br>signo</i><i>8<br>exponente</i><i>7<br>fracción</i></span></div><div class="format-example"><strong>FP16</strong><span class="bits"><i>1<br>signo</i><i>5<br>exponente</i><i>10<br>fracción</i></span></div></div><div class="format-family integer-family"><b>ENTERO CUANTIZADO</b><div class="affine-equation"><span>q</span> código entero &nbsp; + &nbsp; <span>s</span> escala &nbsp; + &nbsp; <span>z</span> punto cero<br>valor aproximado ≈ s × (q − z)</div></div><div class="format-legend"><span>BF16 · FP16 · FP8 · FP4</span><span>INT8 · INT4</span></div></div></div></div>
+    <div class="numeric-lesson">
+      <p class="numeric-lead">La cantidad de bits determina el espacio ocupado por cada valor. La manera de interpretarlos determina qué números pueden representarse.</p>
+      <div class="numeric-columns">
+        <div><h2>DOS FORMATOS DE 16 BITS</h2>
+          <div class="format-legend-keys"><span><i></i>signo</span><span><i class="exp-key"></i>exponente</span><span><i class="fraction-key"></i>fracción</span></div>
+          <div class="format-bit-row"><b>FP16</b><div class="format-proportional-bits"><span class="sign-field">1</span><span class="exponent-field" style="grid-column:span 5">5</span><span class="fraction-field" style="grid-column:span 10">10</span></div></div>
+          <div class="format-bit-row"><b>BF16</b><div class="format-proportional-bits"><span class="sign-field">1</span><span class="exponent-field" style="grid-column:span 8">8</span><span class="fraction-field" style="grid-column:span 7">7</span></div></div>
+          <p class="format-description"><strong>FP16 — Floating Point de 16 bits.</strong><br>Más bits de fracción: distingue valores más cercanos, pero tiene menor rango de magnitudes.</p>
+          <p class="format-description"><strong>BF16 — Brain Floating Point.</strong><br>Más bits de exponente: abarca un rango mayor, pero distingue menos valores intermedios.</p>
+          <div class="format-same-width">AMBOS OCUPAN 16 BITS POR VALOR</div>
+        </div>
+        <div><h2>PUNTO FLOTANTE FRENTE A ENTEROS</h2>
+          <div class="format-families">
+            <div class="format-family-column"><h3>FP · FLOATING POINT</h3><div class="format-names">FP8 · 8 bits<br>FP4 · 4 bits</div><p>Signo, exponente y fracción.</p><p class="spacing-description">Separaciones variables entre valores.</p></div>
+            <div class="format-family-column"><h3>INT · INTEGER</h3><div class="format-names">INT8 · 8 bits<br>INT4 · 4 bits</div><p>Código entero acompañado por una escala y, según el método, un punto cero.</p><p class="spacing-description">Separaciones iguales entre valores reconstruidos, para una escala fija.</p></div>
+          </div>
+          <div class="format-integer-example">INT4: código <span>3</span> × escala <span>0,1</span> = 0,30</div>
+        </div>
+      </div>
+      <div class="format-comparison-takeaway"><strong>FP4 e INT4 utilizan cuatro bits, pero representan los valores de manera diferente.</strong><small>Los formatos flotantes de baja precisión también pueden utilizar escalas adicionales.</small></div>
+    </div>
     <div class="source"><span class="ref">FUENTE</span> [1], sección 5.1.1.</div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">43 / 62</span></div>
   </section>
