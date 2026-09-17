@@ -536,6 +536,32 @@
 .activation-plain{margin-top:44px;border-top:2px solid var(--coral);padding-top:20px}
 .activation-plain h3{font:700 17px/1.2 var(--mono);color:var(--ink);margin-bottom:13px}
 .activation-plain p{font:400 23px/1.4 var(--sans);text-align:left;color:var(--ink-soft)}
+.scope-table{width:100%;border-collapse:collapse;margin-top:28px;font-size:23px;line-height:1.35}
+.scope-table th{text-align:left;font:700 16px/1.3 var(--mono);color:var(--ink);padding:0 22px 16px 0;border-bottom:3px solid var(--coral)}
+.scope-table td{vertical-align:top;padding:25px 26px 25px 0;border-bottom:1px solid var(--rule)}
+.scope-table td:first-child{width:18%;font-weight:650;color:var(--ink)}
+.scope-table td:nth-child(2){width:42%}.scope-table td:last-child{width:40%;padding-right:0}
+.scope-independence{font-size:24px;line-height:1.35;margin-top:26px;max-width:1350px}
+.mixed-defined .essential-formats{margin-top:27px}
+.mixed-defined .essential-format{grid-template-columns:300px 1fr;gap:45px;padding:20px 0}
+.mixed-defined .essential-format p{font-size:23px;line-height:1.35;max-width:none}
+.mixed-defined .essential-format p strong{font:650 23px/1.35 var(--sans)}
+.hybrid-stage{position:absolute;left:var(--m);right:var(--m);top:230px;bottom:124px;color:var(--ink-soft)}
+.hybrid-stage p{text-align:left;hyphens:none}
+.hybrid-lead{font-size:24px;line-height:1.35;max-width:1410px}
+.hybrid-compare{display:grid;grid-template-columns:1fr 1fr;gap:58px;margin-top:27px}
+.hybrid-side{border-top:3px solid var(--ink);padding-top:17px}.hybrid-side:last-child{border-top-color:var(--coral)}
+.hybrid-side h2{font-size:26px;line-height:1.2;color:var(--ink);margin-bottom:13px}
+.hybrid-side p{font-size:22px;line-height:1.4}
+.hybrid-side .hybrid-key{font-size:21px;font-weight:600;margin-top:14px;color:var(--ink)}
+.hybrid-pattern{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:27px}
+.hybrid-pattern span{font:600 17px var(--mono);border:1px solid var(--rule);padding:16px 24px}
+.hybrid-pattern .complete{border-color:var(--coral);color:var(--coral)}
+.hybrid-pattern b{font:600 20px var(--mono);margin-left:18px}
+.hybrid-files{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;border-top:1px solid var(--rule);padding-top:17px;margin-top:26px}
+.hybrid-files h3{font:600 20px var(--mono);color:var(--ink);margin-bottom:9px}
+.hybrid-files p{font-size:20px;line-height:1.35}
+
 
 .affine-definition{display:flex;flex-direction:column;gap:7px;margin-top:16px;font-size:18px}.reconstruct-equation{font-size:19px;font-weight:600;margin:15px 0 22px;color:var(--ink)}
 .effective-bit-row{display:grid;grid-template-columns:1fr 1fr;gap:25px}.effective-bit-row>div{display:flex;flex-direction:column;gap:10px;border-top:2px solid var(--coral);padding-top:13px}.effective-bit-row b{font-size:19px}.effective-bit-row span{font:400 16px var(--mono)}.effective-bit-row strong{font-size:24px;color:var(--coral)}
@@ -1187,16 +1213,30 @@
     <div class="source"><span class="ref">FUENTE</span> [1], Figura 5.2 y sección 5.1.2.</div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">47 / 62</span></div>
   </section>
-<section class="slide mixed-clarity s48 " id="slide-48" data-slide="48">
+<section class="slide quantization-scope" id="slide-quantization-scope">
+ <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div><div class="rule-top"></div>
+ <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div><div class="title-pos"><h1 class="action-title">Qué se puede cuantizar<span class="dot">.</span></h1></div>
+ <div class="essential-stage">
+  <p class="essential-lead">Se pueden reducir los bits de los pesos, de los resultados intermedios y de la información guardada durante la generación.</p>
+  <table class="scope-table"><thead><tr><th>COMPONENTE</th><th>QUÉ CONTIENE</th><th>QUÉ APORTA CUANTIZARLO</th></tr></thead><tbody>
+   <tr><td>Pesos</td><td>Los números aprendidos durante el entrenamiento.</td><td>Reduce el tamaño del modelo y la memoria que ocupan sus pesos.</td></tr>
+   <tr><td>Activaciones</td><td>Los resultados intermedios que calculan las capas al procesar una entrada.</td><td>Reduce los datos que se almacenan o mueven. Puede acelerar operaciones compatibles.</td></tr>
+   <tr><td>Caché KV</td><td>Claves y valores de los tokens ya procesados, que la atención vuelve a consultar.</td><td>Reduce la memoria necesaria para mantener el contexto.</td></tr>
+  </tbody></table>
+  <p class="scope-independence"><strong>Son decisiones independientes:</strong> un modelo con pesos de 4 bits puede usar activaciones y caché KV de mayor precisión.</p>
+ </div>
+ <div class="source"></div><div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">— / —</span></div>
+</section>
+<section class="slide mixed-clarity mixed-defined s48 " id="slide-48" data-slide="48">
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
     <div class="rule-top"></div>
     <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div><div class="title-pos"><h1 class="action-title ">Precisión mixta<span class="dot">.</span></h1></div>
     <div class="essential-stage">
- <p class="essential-lead">Precisión mixta: usar distintas representaciones numéricas en un mismo modelo.<br>Así se distribuyen los pesos de <strong>Alchemist</strong>:</p>
+ <p class="essential-lead"><strong>Alchemist</strong> utiliza distintas representaciones numéricas según la función de cada componente.</p>
  <div class="essential-formats">
-  <div class="essential-format"><div><strong>4 bits</strong><span>Códigos enteros</span></div><p>248 matrices de proyección.</p></div>
-  <div class="essential-format"><div><strong>6 bits</strong><span>Códigos enteros</span></div><p>Tabla de vocabulario compartida entre la entrada y la salida.</p></div>
-  <div class="essential-format"><div><strong>BF16</strong><span>Punto flotante de 16 bits</span></div><p>Normalizaciones, otros parámetros no cuantizados y módulo de visión.</p></div>
+  <div class="essential-format"><div><strong>4 bits</strong><span>Códigos enteros</span></div><p><strong>248 matrices de proyección.</strong><br>Combinan los valores de entrada para producir nuevos valores dentro del modelo.</p></div>
+  <div class="essential-format"><div><strong>6 bits</strong><span>Códigos enteros</span></div><p><strong>Tabla de vocabulario compartida.</strong><br>Convierte cada token en una lista de números. La misma tabla calcula los puntajes de los posibles tokens de salida.</p></div>
+  <div class="essential-format"><div><strong>BF16</strong><span>Punto flotante de 16 bits</span></div><p><strong>Normalizaciones.</strong> Ajustan la escala de los valores intermedios.<br>BF16 también se conserva en otros parámetros no cuantizados y en el <strong>módulo de visión</strong>, que procesa imágenes.</p></div>
  </div>
 </div>
     <div class="source"><span class="ref">FUENTE</span> [1], secciones 5.1.1 y 5.1.2.</div>
@@ -1218,11 +1258,19 @@
     <div class="source"><span class="ref">FUENTE</span> [1], sección 5.1.1; [4] y [5].</div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">50 / 62</span></div>
   </section>
-<section class="slide s51 " id="slide-51" data-slide="51">
+<section class="slide hybrid-plain s51 " id="slide-51" data-slide="51">
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
     <div class="rule-top"></div>
     <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div><div class="title-pos"><h1 class="action-title ">Caso Alchemist: arquitectura y repositorio<span class="dot">.</span></h1></div>
-    <div class="stage split dense"><div class="copy"><p>Alchemist parte de un modelo de cuatro mil millones de parámetros con ajuste agéntico previo.</p><p>Su config.json declara 32 capas y una arquitectura híbrida que intercala tres capas de atención lineal con una de atención completa: 24 lineales y 8 completas.</p><p>El repositorio contiene configuración, tokenizador, plantilla, licencia, scripts, índice y archivos safetensors. El ejemplo utiliza el módulo de lenguaje; el módulo de visión permanece en BF16.</p><p>Este es el caso aplicado, no la definición general.</p></div><div class="visual"><div class="alchemist-arch"><div class="model-origin"><b>BASE 4B</b><div class="arrow"><span>→</span></div><b>AJUSTE AGÉNTICO</b><div class="arrow"><span>→</span></div><b>ALCHEMIST</b></div><div class="pattern-row"><span class="chip ">LINEAL</span><span class="chip ">LINEAL</span><span class="chip ">LINEAL</span><span class="chip accent">COMPLETA</span></div><div class="repeat">× 8 · 32 CAPAS</div><div class="repo-files">config.json · tokenizer · template · licencia · scripts · safetensors</div><div class="vision-note">módulo de lenguaje cuantizado · visión conservada en BF16</div></div></div></div>
+    <div class="hybrid-stage">
+ <p class="hybrid-lead">Alchemist parte de un modelo de unos cuatro mil millones de parámetros, ajustado previamente para realizar tareas con herramientas. Combina dos formas de utilizar el contexto:</p>
+ <div class="hybrid-compare">
+  <div class="hybrid-side"><h2>Atención lineal · 24 capas</h2><p>Es como leer un texto e ir actualizando unas notas. Cada nuevo token modifica esas notas, que el modelo usa para continuar en lugar de consultar cada token anterior por separado.</p><p class="hybrid-key">En el modelo, esas “notas” son números, no frases.<br>Su tamaño se mantiene fijo en estas capas.</p></div>
+  <div class="hybrid-side"><h2>Atención completa · 8 capas</h2><p>Puede consultar información de cada token anterior por separado.</p><p class="hybrid-key">Guarda esa información en la caché KV.<br>La caché crece al añadir más tokens.</p></div>
+ </div>
+ <div class="hybrid-pattern"><span>LINEAL</span><span>LINEAL</span><span>LINEAL</span><span class="complete">COMPLETA</span><b>× 8 = 32 capas</b></div>
+ <div class="hybrid-files"><div><h3>config.json</h3><p>Describe cómo está organizado el modelo.</p></div><div><h3>.safetensors</h3><p>Formato que guarda los pesos y otros arreglos de números. Permite leer esos datos sin ejecutar código contenido en el archivo.</p></div></div>
+</div>
     <div class="source"><span class="ref">FUENTE</span> [6] y [7].</div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">51 / 62</span></div>
   </section>
@@ -1499,7 +1547,9 @@ const sourceMap={
   'slide-25':`<span class="ref">FUENTE</span>${cite('https://huggingface.co/docs/transformers/main/en/chat_templating','Hugging Face (2026), Chat templates')}.`,
   'slide-31':`<span class="ref">CONFIG.JSON</span>${cite('https://huggingface.co/Qwen/Qwen3.8-27B/blob/main/config.json','Qwen/Qwen3.8-27B')}.`,
   'slide-50':`<span class="ref">FUENTES</span>${cite('https://prismml.com/news/ternary-bonsai','PrismML (2026)')}; ${cite('https://unsloth.ai/docs/basics/unsloth-dynamic-2.0-ggufs','Unsloth (2026)')}.`,
-  'slide-51':`<span class="ref">FUENTES</span>${cite(kaggleUrl,'Galvis (2026)')}; ${cite(alchemistUrl,'Datastrat (2026)')}.`,
+  'slide-quantization-scope':`<span class="ref">FUENTES</span>${cite('https://github.com/mit-han-lab/smoothquant','Xiao et al. (2023). SmoothQuant.')}; ${cite('https://huggingface.co/docs/transformers/v4.50.0/kv_cache','Hugging Face (s. f.). KV cache strategies.')}`,
+  'slide-51':`<span class="ref">FUENTES</span>${cite(alchemistUrl,'Datastrat (2026)')}; ${cite('https://huggingface.co/docs/transformers/v5.13.0/model_doc/qwen3_5','Hugging Face (2026). Qwen3.5.')}; ${cite('https://huggingface.co/docs/safetensors/index','Hugging Face (s. f.). Safetensors.')}`,
+
   'slide-43b':`<span class="ref">FUENTE</span>${cite('https://ml-explore.github.io/mlx/build/html/python/_autosummary/mlx.core.quantize.html','MLX Contributors (s. f.). Quantize.')}`,
   'slide-48':`<span class="ref">FUENTE</span>${cite(alchemistUrl,'Datastrat (2026). Alchemist.')}`,
   'slide-52':`<span class="ref">FUENTES</span>${cite(kaggleUrl,'Galvis (2026)')}; ${cite(alchemistUrl,'Datastrat (2026)')}; ${cite('https://ml-explore.github.io/mlx/build/html/python/_autosummary/mlx.core.quantize.html','MLX Contributors (s. f.)')}.`,
