@@ -513,6 +513,7 @@
 .method-lesson .method-steps{display:flex;flex-direction:column;gap:24px}.method-lesson .method-steps>div{display:grid;grid-template-columns:34px 1fr;gap:16px;border:0;padding:0}.method-steps>div>b{font:700 22px/1.35 var(--mono);color:var(--coral)}.method-steps p{font-size:21px}.method-steps strong{color:var(--ink)}
 .compensation-example{display:grid;grid-template-columns:1fr 1.35fr;gap:20px;margin:18px 0 27px}.compensation-example>div{display:flex;flex-direction:column;gap:10px}.compensation-example span{font:600 14px var(--mono)}.compensation-example b{font:600 28px var(--mono);color:var(--ink)}.compensation-example small{font-size:16px}.compensation-example>div:last-child b{color:var(--coral)}
 .group-storage{display:flex;justify-content:space-between;gap:14px;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);padding:17px 0;margin-top:16px;font:500 15px var(--mono)}
+.group-definition{font-size:19px;margin:12px 0 0;line-height:1.35}
 .affine-definition{display:flex;flex-direction:column;gap:7px;margin-top:16px;font-size:18px}.reconstruct-equation{font-size:19px;font-weight:600;margin:15px 0 22px;color:var(--ink)}
 .effective-bit-row{display:grid;grid-template-columns:1fr 1fr;gap:25px}.effective-bit-row>div{display:flex;flex-direction:column;gap:10px;border-top:2px solid var(--coral);padding-top:13px}.effective-bit-row b{font-size:19px}.effective-bit-row span{font:400 16px var(--mono)}.effective-bit-row strong{font-size:24px;color:var(--coral)}
 </style></head><body><main class="deck-wrap"><section class="slide s01 cover-slide" id="slide-01" data-slide="1">
@@ -1046,7 +1047,7 @@
           <div class="quant-model-layer"><b>Capa 2</b><div class="quant-model-tensors" aria-hidden="true"><i class="quant-mini-matrix"></i><i class="quant-mini-matrix"></i><i class="quant-mini-matrix"></i></div></div>
           <div class="quant-model-layer"><b>Capa …</b><div class="quant-model-tensors" aria-hidden="true"><i class="quant-mini-matrix"></i><i class="quant-mini-matrix"></i><i class="quant-mini-matrix"></i></div></div>
         </div>
-        <p class="quant-tensor-caption">Los pesos se organizan en tensores.<br>Una matriz es un tensor de dos dimensiones.</p>
+        <p class="quant-tensor-caption">Cada celda contiene un peso: un número<br>que el modelo utiliza en sus cálculos.</p>
         <div class="quant-zoom-arrow">↓</div>
         <div class="quant-matrix-zoom">
           <div><h3>MATRIZ DE PESOS · EJEMPLO FP16</h3><div class="quant-matrix"><span>0,123046875</span><span>−0,453125</span><span>0,078125</span><span>−0,3125</span><span class="selected-weight">0,2734375</span><span>0,5625</span><span>0,0390625</span><span>0,19140625</span><span>−0,21875</span></div></div>
@@ -1116,34 +1117,6 @@
         <p class="family-note">La escala se almacena aparte y puede compartirse entre varios valores. Para una escala fija, los pasos son iguales. Según el esquema, también se aplica un punto cero.</p>
       </div>
     </div><div class="fp-int-takeaway"><strong>FP4 e INT4 utilizan cuatro bits, pero interpretan esos bits de manera diferente.</strong><p>Los formatos flotantes de baja precisión también pueden utilizar escalas adicionales.</p></div></div>
-    <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">— / —</span></div>
-  </section>
-<section class="slide quant-hierarchy-slide" id="slide-43b" data-slide="43b">
-    <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
-    <div class="rule-top"></div>
-    <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div><div class="title-pos"><h1 class="action-title">Capas, tensores, canales y grupos<span class="dot">.</span></h1></div>
-    <div class="clarity-stage hierarchy-lesson">
- <div class="clarity-definitions">
-  <p><strong>Capa.</strong> Etapa del modelo que transforma los datos que recibe. Una capa lineal combina sus entradas usando pesos.</p>
-  <p><strong>Tensor.</strong> Arreglo de números. Una matriz de pesos es un tensor de dos dimensiones: filas y columnas.</p>
-  <p><strong>Canal.</strong> Una característica de entrada o salida. Aquí, cada fila reúne los pesos que producen una característica de salida.</p>
-  <p><strong>Grupo de cuantización.</strong> Pesos que comparten los mismos parámetros para aproximar sus valores.</p>
- </div>
- <div class="hierarchy-evidence">
-  <div class="clarity-label">MATRIZ DE PESOS DE UNA CAPA LINEAL</div>
-  <div class="matrix-axis">8 columnas = 8 características de entrada</div>
-  <div class="number-matrix"><span>0,25</span><span>−0,50</span><span>0,75</span><span>0,10</span><span>−0,20</span><span>0,40</span><span>0,60</span><span>−0,30</span><span>−0,10</span><span>0,80</span><span>0,35</span><span>−0,60</span><span>0,20</span><span>−0,45</span><span>0,15</span><span>0,90</span><span>0,50</span><span>0,30</span><span>−0,25</span><span>0,65</span><span>−0,70</span><span>0,05</span><span>0,45</span><span>−0,15</span></div>
-  <div class="matrix-caption">3 filas = 3 características de salida. Cada celda contiene un peso.</div>
-  <div class="scope-comparison">
-   <div><h3>POR TENSOR</h3><div class="mini-matrix whole"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>Un conjunto de parámetros para toda la matriz.</p></div>
-   <div><h3>POR CANAL DE SALIDA</h3><div class="mini-matrix rows"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>Un conjunto por fila.</p></div>
-   <div><h3>POR GRUPO</h3><div class="mini-matrix groups"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>Un conjunto por segmento de una fila.</p></div>
-  </div>
-  <p class="scope-explanation">Aquí cada grupo tiene 4 pesos. <strong>Alchemist usa 128.</strong><br><strong>Escala:</strong> paso entre valores. <strong>Desplazamiento:</strong> valor del código cero.</p>
- </div>
- <p class="clarity-bottom">Grupos más pequeños permiten ajustar mejor cada zona, pero necesitan almacenar más escalas y desplazamientos.</p>
-</div>
-    <div class="source"></div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">— / —</span></div>
   </section>
 <section class="slide memory-clarity s45 " id="slide-45" data-slide="45">
@@ -1245,7 +1218,7 @@
     <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div><div class="title-pos"><h1 class="action-title ">Caso Alchemist: método de cuantización<span class="dot">.</span></h1></div>
     <div class="clarity-stage method-lesson">
  <div class="method-steps">
-  <div><b>01</b><p><strong>Reescalar 216 matrices.</strong> Aumentar los pesos de ciertos canales y dividir sus entradas por el mismo factor, antes de redondear.</p></div>
+  <div><b>01</b><p><strong>Reescalar 216 matrices.</strong> Aumentar los pesos asociados con determinadas características de entrada y dividir esas entradas por el mismo factor, antes de redondear.</p></div>
   <div><b>02</b><p><strong>Integrar la compensación.</strong> Incorporar esa división en los parámetros de una capa vecina, sin añadir un cálculo durante la inferencia.</p></div>
   <div><b>03</b><p><strong>Cuantizar por grupos de 128 pesos.</strong> Las 248 proyecciones usan códigos enteros de 4 bits. De ellas, 32 se cuantizan sin reescalar. La tabla de vocabulario compartida usa 6 bits.</p></div>
   <div><b>04</b><p><strong>Evaluar y conservar el rango.</strong> Recortar los valores extremos aumentó las repeticiones de llamadas fallidas a herramientas. Por eso se descartó.</p></div>
@@ -1253,7 +1226,8 @@
  <div class="method-evidence">
   <h3>COMPENSAR CONSERVA EL CÁLCULO</h3>
   <div class="compensation-example"><div><span>ANTES</span><b>2 × 0,5 = 1</b><small>entrada × peso</small></div><div><span>ENTRADA ÷ 4 · PESO × 4</span><b>0,5 × 2 = 1</b><small>mismo resultado antes de redondear</small></div></div>
-  <h3>QUÉ SE GUARDA EN CADA GRUPO</h3>
+  <h3>GRUPO DE CUANTIZACIÓN</h3>
+  <p class="group-definition">En Alchemist, un grupo reúne 128 pesos que comparten una escala y un desplazamiento.</p>
   <div class="group-storage"><b>128 códigos enteros</b><span>+ escala en BF16</span><span>+ desplazamiento en BF16</span></div>
   <div class="affine-definition"><p><strong>Escala:</strong> distancia entre dos valores consecutivos.</p><p><strong>Desplazamiento:</strong> valor correspondiente al código cero.</p></div>
   <p class="reconstruct-equation">Peso aproximado = código × escala + desplazamiento</p>
@@ -1290,46 +1264,6 @@
     <div class="stage split dense"><div class="copy"><p>El harness es la arquitectura de ejecución y control que rodea al modelo.</p><p>Administra contexto y estado, proporciona herramientas, aplica permisos y políticas, verifica resultados, registra transiciones y decide cuándo continuar, reparar o terminar.</p><p>Puede operar con un modelo cerrado por API o con uno de pesos abiertos. Los pesos amplían el control sobre la ejecución; el harness aporta contratos, validación, recuperación y observabilidad.</p></div><div class="visual"><div class="harness-architecture"><div class="harness-frame-label">HARNESS · ARQUITECTURA DE EJECUCIÓN Y CONTROL</div><div class="harness-primary"><div class="harness-step"><b>CONTEXTO Y ESTADO</b><small>información disponible</small></div><i>→</i><div class="harness-step model-step"><b>MODELO</b><small>interpreta · propone</small></div><i>→</i><div class="harness-step control-step"><b>VALIDAR Y EJECUTAR</b><small>contratos · reglas</small></div><i>→</i><div class="harness-step decision-step"><b>DECIDIR</b><small>continuar · reparar · terminar</small></div></div><div class="harness-rails"><span><b>HERRAMIENTAS</b><small>capacidades disponibles</small></span><span><b>PERMISOS Y POLÍTICAS</b><small>qué puede ejecutarse</small></span><span><b>OBSERVABILIDAD</b><small>traza de cada transición</small></span><span><b>RECUPERACIÓN</b><small>respuesta ante fallos</small></span></div><div class="harness-feedback"><span>RESULTADO</span><i>→</i><span>NUEVO ESTADO</span><i>→</i><span>SIGUIENTE ITERACIÓN</span></div></div></div></div>
     <div class="source"><span class="ref">FUENTE</span> [11] y [12].</div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">55 / 62</span></div>
-  </section>
-<section class="slide s56 " id="slide-56" data-slide="56">
-    <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
-    <div class="rule-top"></div>
-    <div class="eyebrow-pos"><div class="eyebrow">06 · HARNESS MODULAR</div></div><div class="title-pos"><h1 class="action-title ">Composición dinámica<span class="dot">.</span></h1></div>
-    <div class="stage split "><div class="copy"><p>El paper estudia sistemas capaces de cargar, retirar o reconfigurar componentes durante la ejecución.</p><p>Reiniciar el proceso completo es una respuesta de grano grueso: pierde estado útil e interrumpe tareas.</p><p>La composición dinámica busca localizar el cambio y conservar una trayectoria coherente mientras herramientas, memoria, permisos u orquestación aparecen, desaparecen o cambian.</p></div><div class="visual"><div class="reconfigure"><div class="state-line">Γ <div class="arrow"><span>→</span></div> COMPONENTE A <div class="arrow"><span>→</span></div> COMPONENTE B <div class="arrow"><span>→</span></div> TAREA ACTIVA</div><div class="reconfig-grid"><div><b>REINICIO TOTAL</b><span>estado perdido</span><span>tarea interrumpida</span></div><div class="accent"><b>COMPOSICIÓN DINÁMICA</b><span>Γ se transforma</span><span>cambio localizado</span></div></div></div></div></div>
-    <div class="source"><span class="ref">FUENTE</span> [2], sección 1.</div>
-    <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">56 / 62</span></div>
-  </section>
-<section class="slide s57 " id="slide-57" data-slide="57">
-    <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
-    <div class="rule-top"></div>
-    <div class="eyebrow-pos"><div class="eyebrow">06 · HARNESS MODULAR</div></div><div class="title-pos"><h1 class="action-title ">Composabilidad temporal y espacial<span class="dot">.</span></h1></div>
-    <div class="stage split "><div class="copy"><div class="definition"><div class="term">Composabilidad temporal</div><div class="desc">Los efectos de un componente pueden retirarse mediante transformaciones inversas seguras.</div></div><div class="definition"><div class="term">Composabilidad espacial</div><div class="desc">Cada componente declara lo que necesita y reacciona cuando sus proveedores aparecen, desaparecen o cambian.</div></div><p>Las dimensiones son ortogonales. Revertir efectos no resuelve dependencias; declarar dependencias no garantiza que una reversión sea correcta.</p></div><div class="visual"><div class="axes"><div class="axis-v"><b>TEMPORAL</b></div><div class="axis-h"><b>ESPACIAL</b></div><span class="axis-label temporal-top">reversión segura</span><span class="axis-label temporal-bottom">recuperación</span><span class="axis-label spatial-left">dependencias</span><span class="axis-label spatial-mid">proveedores</span><span class="axis-label spatial-right">ciclo de vida</span><div class="axes-core">COMPONENTE</div><div class="orthogonal">DIMENSIONES ORTOGONALES</div></div></div></div>
-    <div class="source"><span class="ref">FUENTE</span> [2], secciones 1 y 3.</div>
-    <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">57 / 62</span></div>
-  </section>
-<section class="slide s58 " id="slide-58" data-slide="58">
-    <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
-    <div class="rule-top"></div>
-    <div class="eyebrow-pos"><div class="eyebrow">06 · HARNESS MODULAR</div></div><div class="title-pos"><h1 class="action-title ">Componente = (d, p, e)<span class="dot">.</span></h1></div>
-    <div class="stage split "><div class="copy"><div class="definition"><div class="term">d · dependencias requeridas</div><div class="desc">Qué necesita del contexto para activarse.</div></div><div class="definition"><div class="term">p · provisiones declaradas</div><div class="desc">Qué ofrece a otros componentes.</div></div><div class="definition"><div class="term">e · efecto con inversa</div><div class="desc">Qué transforma en el contexto y cómo se retira.</div></div><p>El contexto es el estado compartido que las piezas han modificado y pueden observar. El efecto cambia ese contexto; el coefecto expresa lo que una pieza necesita para operar.</p></div><div class="visual"><div class="tuple"><div class="tuple-formula">COMPONENTE = ( d, p, e )</div><div class="tuple-grid"><div><b>d</b><span>DEPENDENCIAS</span><small>qué requiere</small></div><div><b>p</b><span>PROVISIONES</span><small>qué ofrece</small></div><div><b>e</b><span>EFECTO</span><small>qué cambia · cómo se retira</small></div></div><div class="gamma">CONTEXTO COMPARTIDO Γ</div></div></div></div>
-    <div class="source"><span class="ref">FUENTE</span> [2], Definición 43 y sección 4.1.</div>
-    <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">58 / 62</span></div>
-  </section>
-<section class="slide s59 " id="slide-59" data-slide="59">
-    <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
-    <div class="rule-top"></div>
-    <div class="eyebrow-pos"><div class="eyebrow">06 · HARNESS MODULAR</div></div><div class="title-pos"><h1 class="action-title ">Ciclo de vida de un componente<span class="dot">.</span></h1></div>
-    <div class="stage split dense"><div class="copy"><p>Una instancia permanece inactiva mientras falten dependencias.</p><p>Cuando aparecen proveedores, se activa contra una vista concreta del contexto. Si un proveedor cambia o desaparece, se desactiva antes de perder el recurso necesario para cerrarse.</p><p>Las transformaciones inversas se ejecutan en orden contrario. La recuperación busca equivalencia observable, no una copia física del estado anterior. La corrección de la inversa sigue siendo responsabilidad del autor.</p></div><div class="visual"><div class="lifecycle"><div class="state inactive">INACTIVO</div><div class="arrow"><span>→</span><small>proveedor aparece</small></div><div class="state active">ACTIVAR</div><div class="arrow"><span>→</span><small>e₁ · e₂ · e₃</small></div><div class="state active">ACTIVO</div><div class="reverse">proveedor cambia &nbsp; ↓ &nbsp; e₃⁻¹ · e₂⁻¹ · e₁⁻¹ &nbsp; → &nbsp; INACTIVO</div><div class="observable">equivalencia observable, no copia física</div></div></div></div>
-    <div class="source"><span class="ref">FUENTE</span> [2], secciones 3 y 4.1.</div>
-    <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">59 / 62</span></div>
-  </section>
-<section class="slide s60 " id="slide-60" data-slide="60">
-    <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
-    <div class="rule-top"></div>
-    <div class="eyebrow-pos"><div class="eyebrow">06 · HARNESS MODULAR</div></div><div class="title-pos"><h1 class="action-title ">Harness_01<span class="dot">.</span></h1></div>
-    <div class="stage split dense"><div class="copy"><p>La propuesta Datastrat adopta dependencias, provisiones, efectos y reversión como disciplina de composición.</p><p>Harness_01 añade políticas operativas:</p><ul><li>universo de datos certificado;</li><li>taxonomía y política declaradas;</li><li>propuesta semántica acotada;</li><li>contrato estructurado;</li><li>validación de reglas;</li><li>cálculo determinista;</li><li>recuperación con límite; y</li><li>traza de cada transición.</li></ul><p>El paper sustenta la composición. Estas políticas de control pertenecen a la adaptación de Datastrat.</p></div><div class="visual"><div class="paper-harness"><div><h3>PAPER [2]</h3><p>dependencias</p><p>provisiones</p><p>efectos</p><p>reversión</p></div><div class="adapt">ADAPTACIÓN<br>DE INGENIERÍA</div><div><h3>HARNESS_01 [8]</h3><p>universo certificado</p><p>política declarada</p><p>contrato + validación</p><p>cálculo + recuperación + traza</p></div></div></div></div>
-    <div class="source"><span class="ref">FUENTE</span> [2] y [8].</div>
-    <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">60 / 62</span></div>
   </section>
 <section class="slide s61 " id="slide-61" data-slide="61">
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
