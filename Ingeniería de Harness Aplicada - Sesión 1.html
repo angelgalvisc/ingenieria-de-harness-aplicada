@@ -201,6 +201,39 @@
 .perplexity-definition{border-left:3px solid var(--coral);padding-left:14px}
 .perplexity-definition b{display:block;font:700 12px/1.2 var(--mono);letter-spacing:.08em;color:var(--ink);margin-bottom:6px}
 .perplexity-definition span{font-size:16px;line-height:1.32;color:var(--ink-soft)}
+/* Recapitulación antes de cuantización. Estilos exclusivos de esta diapositiva. */
+.phase-recap-layout{position:absolute;left:var(--m);right:var(--m);top:218px;bottom:105px;display:grid;grid-template-columns:420px minmax(0,1fr);grid-template-rows:minmax(0,1fr) 62px;column-gap:56px;row-gap:18px}
+.phase-recap-copy{display:flex;flex-direction:column;gap:38px;padding-top:0;color:var(--ink-soft)}
+.phase-recap-copy h2{font:700 16px/1.35 var(--mono);color:var(--coral);margin-bottom:12px;letter-spacing:.015em}
+.phase-recap-copy p{font-size:22px;line-height:1.38;text-align:justify;text-align-last:left;hyphens:auto}
+.phase-recap-flow{display:flex;flex-direction:column;min-width:0;color:var(--ink-soft)}
+.phase-recap-context{text-align:center;font-size:17px;line-height:1.3}
+.phase-recap-context b{display:block;font:700 15px/1.2 var(--mono);color:var(--ink);margin-bottom:5px}
+.phase-recap-connector{height:15px;flex:none;text-align:center;font:500 17px/15px var(--mono);color:var(--coral)}
+.phase-recap-template{text-align:center;font-size:17px;line-height:1.2}
+.phase-recap-template b{display:block;font:700 15px/1.2 var(--mono);color:var(--ink);margin-bottom:3px}
+.phase-recap-serialization{display:grid;grid-template-columns:320px 24px minmax(0,1fr);align-items:center;gap:12px;margin-top:5px}
+.phase-recap-serialization>i{font:500 23px/1 var(--mono);font-style:normal;color:var(--coral);text-align:center}
+.phase-recap-serialization .phase-recap-example{margin-top:0}
+.phase-recap-example{margin:7px 0 0;padding:7px 18px;background:#EEEDEF;display:grid;grid-template-columns:1fr;gap:2px}
+.phase-recap-example small{font:500 12px/1.2 var(--mono);color:var(--mute);margin-bottom:2px}
+.phase-recap-example code{font:500 16px/1.13 var(--mono);white-space:nowrap;color:var(--ink)}
+.phase-recap-example code span{color:var(--mute);font:400 14px/1.13 var(--sans);margin-left:12px}
+.phase-recap-tokens{text-align:center;font:600 18px/1.2 var(--mono);color:var(--ink);margin:3px 0}
+.phase-recap-box{border:1px solid var(--rule);padding:10px 18px}
+.phase-recap-box h3{font:700 15px/1.2 var(--mono);color:var(--coral);margin-bottom:7px}
+.phase-recap-box p{font-size:17px;line-height:1.25}
+.phase-recap-branches{margin-left:24px;display:grid;grid-template-columns:42px 1fr;font-size:17px;line-height:1.3;margin-top:3px}
+.phase-recap-branches i{font:400 18px/1.23 var(--mono);font-style:normal;color:var(--mute)}
+.phase-recap-branches strong{font-weight:600;color:var(--coral)}
+.phase-recap-decode-line{display:flex;gap:15px;align-items:center;justify-content:center;font:600 17px/1.2 var(--mono);color:var(--ink);margin:3px 0 8px}
+.phase-recap-decode-line i{font-style:normal;color:var(--coral)}
+.phase-recap-decode-line strong{color:var(--coral)}
+.phase-recap-box.decode-box p{text-align:center;font-size:16px}
+.phase-recap-resources{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:56px;border-top:1px solid var(--rule);padding-top:12px}
+.phase-recap-resources>div{display:grid;grid-template-columns:90px 1fr;gap:15px;align-items:baseline}
+.phase-recap-resources b{font:700 15px/1.2 var(--mono);color:var(--coral)}
+.phase-recap-resources p{font-size:18px;line-height:1.3;color:var(--ink-soft)}
 @media print{.slide{position:relative;page-break-inside:avoid;break-inside:avoid;page-break-before:auto;break-before:auto;page-break-after:always;break-after:page}.slide:last-child{page-break-after:auto;break-after:auto}}
 </style></head><body><main class="deck-wrap"><section class="slide s01 cover-slide" id="slide-01" data-slide="1">
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
@@ -692,6 +725,34 @@
 <section class="slide section-divider" data-section="05">
     <div class="section-divider-body"><div class="section-divider-index">05</div><h1>Cuantización aplicada<span class="dot">.</span></h1><p class="section-divider-question">¿Qué se gana, qué se arriesga y qué hizo Alchemist?</p></div>
     <div class="section-divider-footer"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="num">— / —</span></div>
+  </section>
+<section class="slide phase-recap-slide" id="slide-quantization-phase-recap">
+    <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
+    <div class="rule-top"></div>
+    <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div>
+    <div class="title-pos"><h1 class="action-title">Prefill y decode<span class="dot">.</span></h1></div>
+    <div class="phase-recap-layout">
+      <div class="phase-recap-copy">
+        <div><h2>PREFILL · PROCESAR EL CONTEXTO</h2><p>El modelo procesa conjuntamente los tokens de entrada, construye la caché de claves y valores —KV— y produce los puntajes con los que se selecciona el primer token de respuesta.</p></div>
+        <div><h2>DECODE · GENERAR LA CONTINUACIÓN</h2><p>El modelo genera los siguientes tokens uno por uno. Cada paso utiliza el token anterior y consulta y actualiza la caché KV hasta completar la respuesta.</p></div>
+      </div>
+      <div class="phase-recap-flow" role="img" aria-label="El harness prepara el contexto. El chat template y el tokenizador lo convierten en tokens. Prefill procesa la entrada, construye la caché KV y permite seleccionar el primer token. Decode genera la continuación consultando y actualizando la caché KV.">
+        <div class="phase-recap-context"><b>CONTEXTO PREPARADO POR EL HARNESS</b><div>Instrucciones del sistema · mensaje del usuario · historial</div><div>Documentos y datos · tools y sus resultados · skills cargadas</div></div>
+        <div class="phase-recap-connector">↓</div>
+        <div class="phase-recap-serialization">
+          <div class="phase-recap-template"><b>CHAT TEMPLATE + TOKENIZADOR</b><div>organizan el contexto y lo convierten<br>en una secuencia de tokens</div></div><i>→</i>
+          <div class="phase-recap-example"><small>Ejemplo esquemático del contexto organizado:</small><code>&lt;|system|&gt; instrucciones y skills …</code><code>&lt;|user|&gt; pregunta y datos …</code><code>&lt;|tools|&gt; descripción de herramientas …</code><code>&lt;|assistant|&gt;<span>← inicio del turno del asistente</span></code></div>
+        </div>
+        <div class="phase-recap-connector">↓</div>
+        <div class="phase-recap-tokens">[t₁][t₂][t₃] … [tₙ]</div>
+        <div class="phase-recap-connector">↓</div>
+        <div class="phase-recap-box"><h3>PREFILL · PROCESAR EL CONTEXTO</h3><p>Procesamiento conjunto de la entrada</p><div class="phase-recap-branches"><i>├─►</i><span>Caché KV del contexto</span><i>└─►</i><span>Selección del <strong>primer token de respuesta</strong></span></div></div>
+        <div class="phase-recap-connector">↓</div>
+        <div class="phase-recap-box decode-box"><h3>DECODE · GENERAR LA CONTINUACIÓN</h3><div class="phase-recap-decode-line"><strong>Primer token</strong><i>→</i><span>siguiente token</span><i>→</i><span>siguiente token</span><i>→ …</i></div><p>La caché KV se consulta y actualiza en cada paso</p></div>
+      </div>
+      <div class="phase-recap-resources"><div><b>PREFILL</b><p>Suele exigir más capacidad de cómputo de la GPU.</p></div><div><b>DECODE</b><p>Con lotes pequeños, suele depender del ancho de banda de la memoria de la GPU.</p></div></div>
+    </div>
+    <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">— / —</span></div>
   </section>
 <section class="slide s42 " id="slide-42" data-slide="42">
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
