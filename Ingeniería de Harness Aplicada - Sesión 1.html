@@ -1272,7 +1272,7 @@
     <div class="hybrid-stage">
  <p class="hybrid-lead">Alchemist parte de un modelo de unos cuatro mil millones de parámetros, ajustado previamente para realizar tareas con herramientas. Combina dos formas de utilizar el contexto:</p>
  <div class="hybrid-compare">
-  <div class="hybrid-side"><h2>Atención lineal · 24 capas</h2><p>Es como leer un texto e ir actualizando unas notas. Cada nuevo token modifica esas notas, que el modelo usa para continuar en lugar de consultar cada token anterior por separado.</p><p class="hybrid-key">En el modelo, esas “notas” son números, no frases.<br>Su tamaño se mantiene fijo en estas capas.</p></div>
+  <div class="hybrid-side"><h2>Atención lineal · 24 capas</h2><p>Utiliza un resumen numérico de los tokens anteriores, que actualiza con cada nuevo token, en lugar de consultar cada token anterior por separado.</p><p class="hybrid-key">En estas capas, el resumen mantiene un tamaño fijo aunque crezca la secuencia.</p></div>
   <div class="hybrid-side"><h2>Atención completa · 8 capas</h2><p>Puede consultar información de cada token anterior por separado.</p><p class="hybrid-key">Guarda esa información en la caché KV.<br>La caché crece al añadir más tokens.</p></div>
  </div>
  <div class="hybrid-pattern"><span>LINEAL</span><span>LINEAL</span><span>LINEAL</span><span class="complete">COMPLETA</span><b>× 8 = 32 capas</b></div>
