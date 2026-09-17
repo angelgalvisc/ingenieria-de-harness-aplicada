@@ -326,6 +326,35 @@
 .format-comparison-takeaway{border-top:1px solid var(--rule);padding-top:14px;font-size:20px;line-height:1.35}
 .format-comparison-takeaway strong{color:var(--ink)}
 .format-comparison-takeaway small{display:block;font-size:17px;color:var(--mute);margin-top:5px}
+.float-explained{position:absolute;left:var(--m);right:var(--m);top:218px;bottom:109px;display:grid;grid-template-rows:auto minmax(0,1fr);gap:23px;color:var(--ink-soft)}
+.float-intro{display:grid;grid-template-columns:410px 1fr;gap:12px 52px}
+.float-goal h2{font-size:23px;line-height:1.25;font-weight:600;color:var(--ink);margin-bottom:11px}
+.float-goal .float-goal-formula{font:600 26px/1.5 var(--mono);color:var(--ink)}
+.float-goal p{font-size:17px;line-height:1.25;margin-top:6px}
+.float-components{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.float-component{border-top:2px solid var(--rule);padding-top:9px}
+.float-component b{font:700 14px/1.2 var(--mono);color:var(--ink)}
+.float-component strong{display:block;font:600 29px/1.2 var(--mono);color:var(--coral);margin:9px 0}
+.float-component p{font-size:18px;line-height:1.3}
+.float-implicit{grid-column:1/-1;font-size:17px;line-height:1.3;padding-top:9px;border-top:1px solid var(--rule)}
+.float-implicit strong{color:var(--ink)}
+.float-examples{display:grid;grid-template-columns:1fr 1fr;gap:58px;min-height:0}
+.float-examples h2{font:700 17px/1.25 var(--mono);letter-spacing:.01em;color:var(--ink);margin-bottom:8px}
+.float-example-lead{font-size:19px;line-height:1.3;margin-bottom:12px}
+.float-resolution-row{border-top:1px solid var(--rule);padding-top:9px;margin-top:10px}
+.float-resolution-label{display:flex;justify-content:space-between;font:650 15px/1.2 var(--mono);color:var(--ink)}
+.float-resolution-label strong{color:var(--coral)}
+.float-resolution-formulas{display:flex;justify-content:space-between;gap:12px;font:500 16px/1.3 var(--mono);margin-top:10px;color:var(--mute)}
+.float-resolution-formulas .new-value{color:var(--coral);font-weight:650}
+.float-resolution-axis{display:flex;align-items:center;gap:13px;margin:8px 0 4px;font:600 23px/1.2 var(--mono);color:var(--ink)}
+.float-resolution-axis i{height:1px;background:var(--rule);flex:1}
+.float-resolution-axis strong{color:var(--coral)}
+.float-example-note{font-size:18px;line-height:1.35;margin-top:14px;color:var(--ink-soft)}
+.float-example-note strong{color:var(--ink)}
+.float-range-table{width:100%;border-collapse:collapse;margin-top:15px;text-align:left}
+.float-range-table th{font:700 13px/1.2 var(--mono);color:var(--mute);padding:0 10px 10px 0}
+.float-range-table td{font:500 20px/1.25 var(--mono);padding:14px 10px 14px 0;border-top:1px solid var(--rule);color:var(--ink)}
+.float-range-table tr.current td{color:var(--coral);font-weight:650}
 @media print{.slide{position:relative;page-break-inside:avoid;break-inside:avoid;page-break-before:auto;break-before:auto;page-break-after:always;break-after:page}.slide:last-child{page-break-after:auto;break-after:auto}}
 </style></head><body><main class="deck-wrap"><section class="slide s01 cover-slide" id="slide-01" data-slide="1">
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
@@ -885,23 +914,27 @@
     <div class="topbar"><span>Inferencia aplicada · Masterclass · Datastrat · 2026</span><span class="coord">2026-09 · SESIÓN_01</span></div>
     <div class="rule-top"></div>
     <div class="eyebrow-pos"><div class="eyebrow">05 · CUANTIZACIÓN APLICADA</div></div><div class="title-pos"><h1 class="action-title">Punto flotante<span class="dot">.</span></h1></div>
-    <div class="numeric-lesson">
-      <p class="numeric-lead">Un número en punto flotante combina tres componentes: una fracción que permite distinguir valores cercanos, un exponente que ajusta la magnitud y un signo.</p>
-      <div class="numeric-columns">
-        <div><h2><span class="coral">01</span> FRACCIÓN · CONSTRUIR EL VALOR</h2><p class="numeric-explanation">En este ejemplo, partimos de <strong>1</strong>.<br>Cada bit de fracción permite añadir una porción menor.</p>
-          <div class="fraction-demonstration">
-            <div class="fraction-contribution"><small>PRIMER BIT</small><span>una mitad</span><strong>0,5</strong><b class="fraction-bit">1</b><em>se añade</em></div>
-            <div class="fraction-contribution off"><small>SEGUNDO BIT</small><span>un cuarto</span><strong>0,25</strong><b class="fraction-bit">0</b><em>no se añade</em></div>
-            <div class="fraction-contribution"><small>TERCER BIT</small><span>un octavo</span><strong>0,125</strong><b class="fraction-bit">1</b><em>se añade</em></div>
-          </div>
-          <div class="fraction-sum">1 + <span>0,5</span> + <span>0,125</span> = 1,625</div>
+    <div class="float-explained">
+      <div class="float-intro">
+        <div class="float-goal"><h2>Queremos guardar el número −6,5.</h2><div class="float-goal-formula">−6,5 = −1,625 × 2²<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= −1,625 × 4</div><p>Es el mismo número, escrito de otra manera.</p></div>
+        <div class="float-components">
+          <div class="float-component"><b>SIGNO</b><strong>−</strong><p>Indica negativo.</p></div>
+          <div class="float-component"><b>EXPONENTE</b><strong>2</strong><p>Indica multiplicar por 2², es decir, 4.</p></div>
+          <div class="float-component"><b>FRACCIÓN</b><strong>0,625</strong><p>Completa el valor:<br>1 + 0,625 = 1,625.</p></div>
         </div>
-        <div>
-          <div class="numeric-right-step"><h2><span class="coral">02</span> EXPONENTE · AJUSTAR LA MAGNITUD</h2><p class="numeric-explanation">El exponente indica una potencia de dos.<br>Si el exponente es <strong>2</strong>, multiplicamos por <strong>2² = 4</strong>.</p><div class="numeric-calculation">1,625 × <strong>4</strong> = 6,5</div></div>
-          <div class="numeric-right-step"><h2><span class="coral">03</span> SIGNO · POSITIVO O NEGATIVO</h2><p class="numeric-explanation">Con signo negativo, el resultado es:</p><div class="numeric-negative">−6,5</div></div>
+        <p class="float-implicit">En los números normalizados, el formato binario utiliza un <strong>1 inicial implícito</strong>. Por eso almacena la fracción que lo completa.</p>
+      </div>
+      <div class="float-examples">
+        <div><h2>MÁS BITS DE FRACCIÓN · PASOS MÁS PEQUEÑOS</h2><p class="float-example-lead">Mantengamos el multiplicador <strong>×4</strong>.</p>
+          <div class="float-resolution-row"><div class="float-resolution-label"><span>2 BITS DE FRACCIÓN</span><strong>PASO: 1</strong></div><div class="float-resolution-formulas"><span>1,50 × 4 = 6</span><span>1,75 × 4 = 7</span></div><div class="float-resolution-axis"><span>6</span><i></i><span>7</span></div></div>
+          <div class="float-resolution-row"><div class="float-resolution-label"><span>3 BITS DE FRACCIÓN</span><strong>PASO: 0,5</strong></div><div class="float-resolution-formulas"><span>1,50 × 4 = 6</span><span class="new-value">1,625 × 4 = 6,5</span><span>1,75 × 4 = 7</span></div><div class="float-resolution-axis"><span>6</span><i></i><strong>6,5</strong><i></i><span>7</span></div></div>
+          <p class="float-example-note">Ese bit adicional permite representar <strong>exactamente −6,5</strong> al aplicar el signo negativo. Con dos bits de fracción, habría que aproximarlo.</p>
+        </div>
+        <div><h2>MÁS BITS DE EXPONENTE · UN RANGO MÁS AMPLIO</h2><p class="float-example-lead">Mantengamos <strong>1,625</strong> y el signo negativo.<br>Cambiemos únicamente el exponente.</p>
+          <table class="float-range-table"><thead><tr><th>EXPONENTE</th><th>MULTIPLICADOR</th><th>NÚMERO REPRESENTADO</th></tr></thead><tbody><tr><td>−2</td><td>2⁻² = 0,25</td><td>−0,40625</td></tr><tr class="current"><td>2</td><td>2² = 4</td><td>−6,5</td></tr><tr><td>10</td><td>2¹⁰ = 1024</td><td>−1664</td></tr></tbody></table>
+          <p class="float-example-note"><strong>Más bits de exponente amplían el rango de exponentes disponibles</strong>, para alcanzar magnitudes más pequeñas o más grandes sin cambiar la fracción del ejemplo.</p>
         </div>
       </div>
-      <div class="numeric-takeaways"><p><strong>Más bits de fracción:</strong> permiten representar pasos más pequeños entre valores.</p><p><strong>Más bits de exponente:</strong> permiten abarcar magnitudes más grandes y más pequeñas.</p></div>
     </div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">— / —</span></div>
   </section>
@@ -916,8 +949,8 @@
           <div class="format-legend-keys"><span><i></i>signo</span><span><i class="exp-key"></i>exponente</span><span><i class="fraction-key"></i>fracción</span></div>
           <div class="format-bit-row"><b>FP16</b><div class="format-proportional-bits"><span class="sign-field">1</span><span class="exponent-field" style="grid-column:span 5">5</span><span class="fraction-field" style="grid-column:span 10">10</span></div></div>
           <div class="format-bit-row"><b>BF16</b><div class="format-proportional-bits"><span class="sign-field">1</span><span class="exponent-field" style="grid-column:span 8">8</span><span class="fraction-field" style="grid-column:span 7">7</span></div></div>
-          <p class="format-description"><strong>FP16 — Floating Point de 16 bits.</strong><br>Más bits de fracción: distingue valores más cercanos, pero tiene menor rango de magnitudes.</p>
-          <p class="format-description"><strong>BF16 — Brain Floating Point.</strong><br>Más bits de exponente: abarca un rango mayor, pero distingue menos valores intermedios.</p>
+          <p class="format-description"><strong>FP16 — Floating Point de 16 bits.</strong><br>10 bits de fracción: pasos más pequeños entre valores a una misma escala. Menor rango de magnitudes que BF16.</p>
+          <p class="format-description"><strong>BF16 — Brain Floating Point.</strong><br>8 bits de exponente: rango más amplio de magnitudes que FP16, con menos detalle dentro de cada escala.</p>
           <div class="format-same-width">AMBOS OCUPAN 16 BITS POR VALOR</div>
         </div>
         <div><h2>PUNTO FLOTANTE FRENTE A ENTEROS</h2>
