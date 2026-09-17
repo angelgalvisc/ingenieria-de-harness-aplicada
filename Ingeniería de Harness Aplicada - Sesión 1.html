@@ -254,8 +254,11 @@
 .quant-selected h3{font-size:14px;line-height:1.4}
 .quant-selected strong{display:block;text-align:center;font:600 30px/1.2 var(--mono);color:var(--coral);margin-top:10px}
 .quant-representation{width:100%;border-top:1px solid var(--rule);margin-top:5px;padding-top:11px}
-.quant-representation-grid{display:grid;grid-template-columns:minmax(290px,1.2fr) 28px minmax(150px,.7fr) 28px minmax(210px,1fr);gap:10px;align-items:start;margin-top:9px;text-align:center}
+.quant-representation-grid{display:grid;grid-template-columns:minmax(290px,1.2fr) 156px minmax(150px,.7fr) 28px minmax(210px,1fr);gap:10px;align-items:start;margin-top:9px;text-align:center}
 .quant-representation-grid>.quant-zoom-right{align-self:center}
+.quant-transfer{padding-top:1px;color:var(--mute);text-align:center}
+.quant-transfer span{display:block;font:500 15px/1.2 var(--sans)}
+.quant-transfer i{display:block;margin-top:4px;font:400 30px/1 var(--mono);font-style:normal}
 .quant-reconstructed .quant-numeric-value{color:var(--coral)}
 .quant-reconstructed p{font:500 17px/1.3 var(--mono);color:var(--ink-soft);margin-top:11px}
 .quant-representation-grid h4{font:500 16px/1.2 var(--sans);color:var(--mute)}
@@ -810,7 +813,7 @@
         <div class="quant-representation"><h3>CUANTIZAR CAMBIA SU REPRESENTACIÓN</h3>
           <div class="quant-representation-grid">
             <div><h4>Peso en FP16</h4><strong class="quant-numeric-value">0,2734375</strong><div class="quant-bit-label">16 BITS POR PESO</div><div class="quant-bit-strip" aria-label="16 bits"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-            <div class="quant-zoom-right">→</div>
+            <div class="quant-transfer"><span>dividir por la escala<br>y redondear</span><i>→</i></div>
             <div class="quant-low"><h4>Código INT4</h4><strong class="quant-numeric-value">3</strong><div class="quant-bit-label">4 BITS POR PESO</div><div class="quant-bit-strip" aria-label="4 bits"><i></i><i></i><i></i><i></i></div></div>
             <div class="quant-zoom-right">→</div>
             <div class="quant-reconstructed"><h4>Valor reconstruido</h4><strong class="quant-numeric-value">0,30</strong><p>3 × 0,1</p></div>
