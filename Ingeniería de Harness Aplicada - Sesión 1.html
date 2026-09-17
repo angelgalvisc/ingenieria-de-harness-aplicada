@@ -355,18 +355,27 @@
 .float-range-table th{font:700 13px/1.2 var(--mono);color:var(--mute);padding:0 10px 10px 0}
 .float-range-table td{font:500 20px/1.25 var(--mono);padding:14px 10px 14px 0;border-top:1px solid var(--rule);color:var(--ink)}
 .float-range-table tr.current td{color:var(--coral);font-weight:650}
-.floating-point-lesson .float-explained{top:228px;bottom:135px;display:block}
-.floating-point-lesson .float-intro{grid-template-columns:1fr;gap:44px}
+.floating-point-lesson .float-explained{top:228px;bottom:110px;display:block}
+.floating-point-lesson .float-intro{grid-template-columns:1fr;gap:28px}
 .floating-point-lesson .float-goal{display:grid;grid-template-columns:1fr 1fr;column-gap:58px;align-items:center}
 .floating-point-lesson .float-goal h2{font-size:30px;margin:0}
 .floating-point-lesson .float-goal-formula{font-size:35px;grid-row:span 2}
 .floating-point-lesson .float-goal p{font-size:23px;margin:12px 0 0}
-.floating-point-lesson .float-components{gap:58px;min-height:245px}
-.floating-point-lesson .float-component{padding-top:19px}
-.floating-point-lesson .float-component b{font-size:18px}
-.floating-point-lesson .float-component strong{font-size:49px;margin:18px 0}
-.floating-point-lesson .float-component p{font-size:25px;line-height:1.4}
-.floating-point-lesson .float-implicit{font-size:23px;padding-top:22px;line-height:1.4;max-width:1320px}
+.float-storage-grid{display:grid;grid-template-columns:510px 1fr;gap:58px}
+.floating-point-lesson .float-components{display:grid;grid-template-columns:1fr;gap:17px}
+.floating-point-lesson .float-component{display:grid;grid-template-columns:144px 1fr;gap:6px 18px;padding-top:12px}
+.floating-point-lesson .float-component b{font-size:17px;align-self:center}
+.floating-point-lesson .float-component strong{font-size:32px;margin:0}
+.floating-point-lesson .float-component p{grid-column:1/-1;font-size:22px;line-height:1.3}
+.floating-point-lesson .float-implicit{font-size:20px;padding-top:16px;margin-top:21px;line-height:1.4}
+.float-storage h2{font:700 19px/1.3 var(--mono);color:var(--ink);margin-bottom:15px}
+.float-storage table{width:100%;border-collapse:collapse;text-align:left;color:var(--ink)}
+.float-storage th{font:700 15px/1.3 var(--mono);padding:0 15px 12px 0;color:var(--mute)}
+.float-storage td{font-size:23px;line-height:1.3;padding:14px 15px 14px 0;border-top:1px solid var(--rule)}
+.float-storage td:last-child{font:500 23px/1.3 var(--mono);white-space:nowrap}
+.float-storage tr:last-child td{font-weight:700;border-top:2px solid var(--ink)}
+.float-storage .storage-notes{display:grid;gap:12px;margin-top:20px;font-size:20px;line-height:1.35}
+.float-storage .storage-notes strong{color:var(--ink)}
 .precision-range-content{position:absolute;left:var(--m);right:var(--m);top:226px;bottom:120px;display:grid;grid-template-columns:1fr 1fr;gap:58px;color:var(--ink-soft)}
 .precision-range-column{display:grid;grid-template-rows:98px 143px 143px auto;row-gap:20px}
 .precision-range-column h2{font:700 19px/1.3 var(--mono);color:var(--ink);margin-bottom:13px}
@@ -942,12 +951,16 @@
     <div class="float-explained">
       <div class="float-intro">
         <div class="float-goal"><h2>Queremos guardar el número −6,5.</h2><div class="float-goal-formula">−6,5 = −1,625 × 2²<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= −1,625 × 4</div><p>Es el mismo número, escrito de otra manera.</p></div>
-        <div class="float-components">
+        <div class="float-storage-grid"><div><div class="float-components">
           <div class="float-component"><b>SIGNO</b><strong>−</strong><p>Indica negativo.</p></div>
           <div class="float-component"><b>EXPONENTE</b><strong>2</strong><p>Indica multiplicar por 2², es decir, 4.</p></div>
-          <div class="float-component"><b>FRACCIÓN</b><strong>0,625</strong><p>Completa el valor:<br>1 + 0,625 = 1,625.</p></div>
+          <div class="float-component"><b>FRACCIÓN</b><strong>0,625</strong><p>Completa el valor: 1 + 0,625 = 1,625.</p></div>
         </div>
         <p class="float-implicit">En los números normalizados, el formato binario utiliza un <strong>1 inicial implícito</strong>. Por eso almacena la fracción que lo completa.</p>
+        </div><div class="float-storage"><h2>EJEMPLO EN FP16 · 16 BITS</h2>
+          <table aria-label="Representación del número menos seis coma cinco en FP16"><thead><tr><th>COMPONENTE</th><th>BITS</th><th>REPRESENTACIÓN</th></tr></thead><tbody><tr><td>Signo negativo</td><td>1</td><td>1</td></tr><tr><td>Exponente 2</td><td>5</td><td>10001</td></tr><tr><td>Fracción 0,625</td><td>10</td><td>1010000000</td></tr><tr><td>Total</td><td>16</td><td>1 · 10001 · 1010000000</td></tr></tbody></table>
+          <div class="storage-notes"><p><strong>Exponente:</strong> FP16 almacena 2 + 15 = 17, que en binario es <strong>10001</strong>.</p><p><strong>Fracción:</strong> <strong>101</strong> representa 0,5 + 0 + 0,125 = 0,625.<br>Los otros siete bits son ceros. FP16 reserva diez bits de fracción.</p></div>
+        </div></div>
       </div>
     </div>
     <div class="rule-bot"></div><div class="bottombar"><span>MASTERCLASS | DATASTRAT</span><span class="num">— / —</span></div>
